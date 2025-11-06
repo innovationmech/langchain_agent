@@ -223,15 +223,31 @@ make clean
 make help
 ```
 
-可用命令包括：
+### 开发命令
 - `make install` - 安装依赖
 - `make install-dev` - 安装开发依赖
+- `make install-local` - 安装本地开发版本
 - `make run` - 运行应用
 - `make test` - 运行测试
 - `make coverage` - 生成测试覆盖率报告
 - `make format` - 格式化代码
 - `make lint` - 代码检查
 - `make clean` - 清理临时文件
+
+### 打包与发布命令
+- `make build` - 构建项目包
+- `make build-check` - 检查构建的包
+- `make clean-build` - 清理构建文件
+- `make check-version` - 检查版本信息
+- `make pre-release` - 发布前的完整检查
+- `make publish-test` - 发布到 TestPyPI
+- `make publish` - 发布到 PyPI
+- `make install-from-build` - 从构建包安装
+
+详细的打包与发布指南请参阅:
+- 📦 [PACKAGING_README.md](PACKAGING_README.md) - 打包功能快速入门
+- 📖 [BUILD_GUIDE.md](BUILD_GUIDE.md) - 快速构建指南
+- 📚 [PACKAGING.md](PACKAGING.md) - 完整打包指南
 
 ## 🤝 贡献
 

@@ -5,6 +5,44 @@
 格式基于 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.0.0/)，
 版本遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [未发布]
+
+### ✨ 新增
+
+- 完整的项目打包配置
+- 自动化构建脚本 (`scripts/build.sh`)
+- PyPI 发布脚本 (`scripts/publish.sh`)
+- 版本检查脚本 (`scripts/check_version.sh`)
+- MANIFEST.in 文件（包含分发文件清单）
+- .pypirc 配置文件模板
+
+### 📚 文档
+
+- 新增打包与发布指南 (PACKAGING.md)
+- 新增脚本使用说明 (scripts/README.md)
+- 更新 README.md 添加打包命令说明
+- 更新 PROJECT_SUMMARY.md 添加打包相关内容
+
+### 🛠️ 开发工具
+
+- Makefile 新增打包相关命令：
+  - `make build` - 构建项目包
+  - `make build-check` - 检查构建的包
+  - `make clean-build` - 清理构建文件
+  - `make install-local` - 安装本地开发版本
+  - `make install-from-build` - 从构建包安装
+  - `make publish-test` - 发布到 TestPyPI
+  - `make publish` - 发布到 PyPI
+  - `make check-version` - 检查版本信息
+  - `make pre-release` - 发布前的完整检查
+
+### 🔧 改进
+
+- 完善 pyproject.toml 的项目元数据
+- 添加项目分类和关键词
+- 配置项目 URLs（主页、仓库、问题跟踪）
+- 优化构建系统配置
+
 ## [0.1.0] - 2024-11-06
 
 ### ✨ 新增
@@ -50,7 +88,7 @@
 - langchain-ollama >= 1.0.0
 - python-dotenv >= 1.0.0
 
-## [未发布] - 待规划
+## [未来计划]
 
 ### 计划添加
 

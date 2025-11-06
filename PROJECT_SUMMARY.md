@@ -46,6 +46,12 @@
    - docker-compose 配置
    - 环境变量管理
 
+8. **打包发布**
+   - 完整的打包配置
+   - 自动化构建脚本
+   - PyPI 发布流程
+   - 版本管理工具
+
 ## 📊 重构前后对比
 
 | 方面 | 重构前 | 重构后 |
@@ -84,7 +90,10 @@ langchain_agent/
 ├── 脚本
 │   └── scripts/
 │       ├── setup.sh               # 自动设置
-│       └── run_tests.sh           # 测试运行
+│       ├── run_tests.sh           # 测试运行
+│       ├── build.sh               # 打包构建
+│       ├── publish.sh             # 发布脚本
+│       └── check_version.sh       # 版本检查
 │
 ├── 部署
 │   ├── Dockerfile
@@ -103,6 +112,7 @@ langchain_agent/
     ├── ARCHITECTURE.md            # 架构说明
     ├── CONTRIBUTING.md            # 贡献指南
     ├── CHANGELOG.md               # 更新日志
+    ├── PACKAGING.md               # 打包指南
     └── LICENSE                    # 许可证
 ```
 
@@ -248,6 +258,21 @@ docker-compose up
 python main.py
 ```
 
+### 打包发布
+```bash
+# 构建包
+make build
+
+# 检查包
+make build-check
+
+# 发布前检查
+make pre-release
+
+# 发布到 PyPI
+make publish
+```
+
 ## 🔮 未来扩展方向
 
 1. **功能扩展**
@@ -279,10 +304,10 @@ python main.py
 
 - **代码文件**: 8 个 Python 模块
 - **测试文件**: 2 个测试模块
-- **文档文件**: 7 个 Markdown 文档
-- **脚本文件**: 2 个自动化脚本
-- **配置文件**: 5 个配置文件
-- **总文件数**: 23 个文件
+- **文档文件**: 8 个 Markdown 文档
+- **脚本文件**: 5 个自动化脚本
+- **配置文件**: 7 个配置文件
+- **总文件数**: 30+ 个文件
 
 ## ✅ 检查清单
 
@@ -296,6 +321,8 @@ python main.py
 - [x] 代码质量检查
 - [x] .gitignore 配置
 - [x] 许可证文件
+- [x] 打包配置
+- [x] 发布脚本
 
 ## 🎉 总结
 
