@@ -212,14 +212,17 @@ make publish-test
 
 ```bash
 # 使用 uv (推荐)
-uv pip install -i https://test.pypi.org/simple/ langchain-agent
+# 从 TestPyPI 安装包,但从 PyPI 安装依赖
+uv pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ langchain-agent
 
 # 或使用传统 pip
-pip install -i https://test.pypi.org/simple/ langchain-agent
+pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ langchain-agent
 
 # 测试功能
 langchain-chat
 ```
+
+> **注意**: TestPyPI 不包含所有依赖包,所以需要同时使用 `--extra-index-url https://pypi.org/simple/` 从正式 PyPI 获取依赖。
 
 ### 发布到正式 PyPI
 
@@ -278,6 +281,24 @@ git push --tags
 3. **预发布版本**: `1.0.0-alpha.1`, `1.0.0-beta.2`, `1.0.0-rc.1`
 
 ## 🔍 故障排除
+
+### TestPyPI 安装问题
+
+**问题**: `ERROR: Could not find a version that satisfies the requirement python-dotenv>=1.0.0`
+
+**原因**: TestPyPI 不包含所有 PyPI 上的包,很多依赖包可能不存在或版本不全。
+
+**解决**:
+```bash
+# 同时使用 TestPyPI 和 PyPI
+# 从 TestPyPI 安装你的包,从 PyPI 安装依赖
+pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ langchain-agent
+
+# 或使用 uv
+uv pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ langchain-agent
+```
+
+**说明**: `--extra-index-url https://pypi.org/simple/` 参数允许 pip 从正式 PyPI 获取缺失的依赖包。
 
 ### 构建失败
 
@@ -404,7 +425,7 @@ make pre-release
 make publish-test
 
 # 5. 测试安装
-pip install -i https://test.pypi.org/simple/ langchain-agent  # 或使用 uv pip
+pip install -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ langchain-agent
 langchain-chat  # 测试功能
 
 # 6. 正式发布到 PyPI
