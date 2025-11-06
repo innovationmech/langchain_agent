@@ -150,7 +150,7 @@ pip install dist/langchain_agent-*.whl --force-reinstall
 
 ```bash
 # 运行命令行工具
-chat
+langchain-chat
 
 # 或在 Python 中导入
 python -c "from langchain_agent import ChatAgent; print('导入成功')"
@@ -218,7 +218,7 @@ uv pip install -i https://test.pypi.org/simple/ langchain-agent
 pip install -i https://test.pypi.org/simple/ langchain-agent
 
 # 测试功能
-chat
+langchain-chat
 ```
 
 ### 发布到正式 PyPI
@@ -338,7 +338,7 @@ pip install --upgrade build
 uv pip install langchain-agent
 
 # 方案2: 安装指定的 Python 版本
-pyenv install 3.9.13  # 或项目要求的版本
+pyenv install 3.10  # 项目要求 Python >= 3.10
 
 # 方案3: 修改 .python-version 为已安装的版本
 pyenv versions  # 先查看已安装的版本
@@ -348,7 +348,7 @@ echo "3.11" > .python-version  # 改为你已有的版本
 **说明**:
 - 本项目同时支持 `uv` 和传统 `pip`
 - 使用 `uv pip` 可以避免 pyenv 版本冲突
-- 项目要求 Python >= 3.9,支持 3.9、3.10、3.11、3.12
+- 项目要求 Python >= 3.10,支持 3.10、3.11、3.12 (因 langchain 依赖要求)
 
 ## 📚 相关文档
 
@@ -405,7 +405,7 @@ make publish-test
 
 # 5. 测试安装
 pip install -i https://test.pypi.org/simple/ langchain-agent  # 或使用 uv pip
-chat  # 测试功能
+langchain-chat  # 测试功能
 
 # 6. 正式发布到 PyPI
 make publish
