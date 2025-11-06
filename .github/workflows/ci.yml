@@ -126,7 +126,7 @@ jobs:
     
     - name: 安装构建工具
       run: |
-        uv pip install build twine
+        uv pip install --system build twine
     
     - name: 构建包
       run: |
@@ -167,7 +167,7 @@ jobs:
     
     - name: 运行安全检查 (pip-audit)
       run: |
-        uv pip install pip-audit
+        uv pip install --system pip-audit
         uv run pip-audit
       continue-on-error: true
 
