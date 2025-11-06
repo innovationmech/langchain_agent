@@ -1,7 +1,9 @@
 """工具函数模块 - 定义 Agent 可用的工具"""
+
 import logging
 from datetime import datetime
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
+
 # NOTE:
 # `StructuredTool` 实例在被 `@tool` 装饰后不再可直接调用。
 # 为了同时满足 LangChain Agent 和单元测试的需求，我们保留原始函数供测试调用，
@@ -14,13 +16,13 @@ logger = logging.getLogger(__name__)
 def get_current_time(time_zone: str = "UTC") -> str:
     """
     获取指定时区的当前时间
-    
+
     Args:
         time_zone: IANA 时区名称，例如 'UTC', 'Asia/Shanghai', 'America/New_York'
-    
+
     Returns:
         格式化的时间字符串 (HH:MM:SS)
-    
+
     Raises:
         ValueError: 当时区名称无效时
     """
@@ -46,9 +48,8 @@ get_current_time_tool = tool(get_current_time)
 def get_all_tools() -> list:
     """
     返回所有可用的工具列表
-    
+
     Returns:
         工具列表
     """
     return [get_current_time_tool]
-

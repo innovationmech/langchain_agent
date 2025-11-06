@@ -1,4 +1,5 @@
 """配置文件 - 集中管理应用配置"""
+
 import os
 from dataclasses import dataclass
 from typing import Optional
@@ -7,6 +8,7 @@ from typing import Optional
 @dataclass
 class LLMConfig:
     """LLM 配置"""
+
     model: str = "gpt-oss"
     temperature: float = 0.0
     max_tokens: int = 1000
@@ -32,19 +34,21 @@ class LLMConfig:
 @dataclass
 class AgentConfig:
     """Agent 配置"""
-    system_prompt: str = "You are a helpful assistant that can answer questions and help with tasks."
+
+    system_prompt: str = (
+        "You are a helpful assistant that can answer questions " "and help with tasks."
+    )
 
     @classmethod
     def from_env(cls) -> "AgentConfig":
         """从环境变量加载配置"""
-        return cls(
-            system_prompt=os.getenv("AGENT_SYSTEM_PROMPT", cls.system_prompt)
-        )
+        return cls(system_prompt=os.getenv("AGENT_SYSTEM_PROMPT", cls.system_prompt))
 
 
 @dataclass
 class AppConfig:
     """应用配置"""
+
     llm: LLMConfig
     agent: AgentConfig
 
@@ -55,4 +59,3 @@ class AppConfig:
             llm=LLMConfig.from_env(),
             agent=AgentConfig.from_env(),
         )
-
