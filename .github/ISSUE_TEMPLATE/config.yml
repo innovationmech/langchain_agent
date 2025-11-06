@@ -1,0 +1,9 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💬 讨论区
+    url: https://github.com/yourusername/langchain_agent/discussions
+    about: 提问、分享想法或展示你的项目
+  - name: 📚 文档
+    url: https://github.com/yourusername/langchain_agent#readme
+    about: 查看项目文档和使用指南
+

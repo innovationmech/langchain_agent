@@ -104,52 +104,6 @@ python main.py
 make run
 ```
 
-## 📁 项目结构
-
-```
-langchain_agent/
-├── 📄 源代码
-│   ├── main.py                    # 应用入口点
-│   └── src/
-│       └── langchain_agent/       # 核心包
-│           ├── __init__.py        # 包初始化
-│           ├── main.py            # 主程序逻辑
-│           ├── config.py          # 配置管理
-│           ├── agent.py           # Agent 封装
-│           ├── tools.py           # 工具函数定义
-│           └── utils.py           # 通用工具函数
-│
-├── 🧪 测试
-│   └── tests/
-│       ├── __init__.py
-│       ├── test_config.py         # 配置测试
-│       └── test_tools.py          # 工具测试
-│
-├── 📜 脚本
-│   └── scripts/
-│       ├── setup.sh               # 自动设置
-│       └── run_tests.sh           # 测试运行
-│
-├── 🐳 部署
-│   ├── Dockerfile                 # Docker 镜像
-│   ├── docker-compose.yml         # 编排配置
-│   └── .env.example               # 环境变量示例
-│
-├── ⚙️ 配置
-│   ├── pyproject.toml             # 项目配置
-│   ├── requirements.txt           # 依赖列表
-│   ├── Makefile                   # 常用命令
-│   └── .gitignore                 # Git 忽略
-│
-└── 📚 文档
-    ├── README.md                  # 主文档（本文件）
-    ├── QUICKSTART.md              # 快速开始
-    ├── ARCHITECTURE.md            # 架构说明
-    ├── CONTRIBUTING.md            # 贡献指南
-    ├── CHANGELOG.md               # 更新日志
-    ├── PROJECT_SUMMARY.md         # 项目总结
-    └── LICENSE                    # MIT 许可证
-```
 
 ## 🎮 使用方法
 
@@ -220,67 +174,6 @@ def get_all_tools() -> list:
 ```python
 setup_logging(level="DEBUG", log_file="app.log")
 ```
-
-## 🧪 测试
-
-运行测试:
-```bash
-# 运行所有测试
-make test
-
-# 或直接使用 pytest
-pytest
-
-# 生成覆盖率报告
-make coverage
-```
-
-## 🔍 代码质量
-
-```bash
-# 格式化代码
-make format
-
-# 代码检查
-make lint
-
-# 清理临时文件
-make clean
-```
-
-## 📋 可用的 Make 命令
-
-运行 `make` 或 `make help` 查看所有可用命令：
-
-```bash
-make help
-```
-
-### 开发命令
-- `make install` - 安装依赖
-- `make install-dev` - 安装开发依赖
-- `make install-local` - 安装本地开发版本
-- `make run` - 运行应用
-- `make test` - 运行测试
-- `make coverage` - 生成测试覆盖率报告
-- `make format` - 格式化代码
-- `make lint` - 代码检查
-- `make clean` - 清理临时文件
-
-### 打包与发布命令
-- `make build` - 构建项目包
-- `make build-check` - 检查构建的包
-- `make clean-build` - 清理构建文件
-- `make check-version` - 检查版本信息
-- `make pre-release` - 发布前的完整检查
-- `make publish-test` - 发布到 TestPyPI
-- `make publish` - 发布到 PyPI
-- `make install-from-build` - 从构建包安装
-
-详细的打包与发布指南请参阅:
-- 📦 [PACKAGING_README.md](PACKAGING_README.md) - 打包功能快速入门
-- 📖 [BUILD_GUIDE.md](BUILD_GUIDE.md) - 快速构建指南
-- 📚 [PACKAGING.md](PACKAGING.md) - 完整打包指南
 
 ## 🤝 贡献
 
