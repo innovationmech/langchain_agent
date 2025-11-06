@@ -42,7 +42,7 @@ dev = [
 ]
 
 [project.scripts]
-chat = "src.langchain_agent.main:main"
+chat = "langchain_agent.main:main"
 
 [build-system]
 requires = ["hatchling"]

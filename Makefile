@@ -47,14 +47,14 @@ build-check:  ## 检查构建的包
 	@twine check dist/*
 
 install-local:  ## 安装本地开发版本
-	pip install -e .
+	uv pip install -e .
 
 install-from-build:  ## 从构建包安装
 	@if [ ! -d "dist" ] || [ -z "$$(ls -A dist/*.whl 2>/dev/null)" ]; then \
 		echo "❌ 未找到 wheel 包，请先运行 make build"; \
 		exit 1; \
 	fi
-	pip install dist/*.whl --force-reinstall
+	uv pip install dist/*.whl --force-reinstall
 
 publish-test:  ## 发布到 TestPyPI
 	@bash scripts/publish.sh testpypi
