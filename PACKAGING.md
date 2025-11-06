@@ -16,7 +16,10 @@
 ### 1. 安装构建工具
 
 ```bash
-# 安装构建和发布所需的工具
+# 使用 uv (推荐)
+uv pip install --upgrade build twine
+
+# 或使用传统 pip
 pip install --upgrade build twine
 ```
 
@@ -120,20 +123,26 @@ uv run python -m build
 ### 1. 安装开发版本
 
 ```bash
-# 以可编辑模式安装
+# 使用 Make 命令 (推荐)
 make install-local
 
-# 或
+# 或使用 uv
+uv pip install -e .
+
+# 或使用传统 pip
 pip install -e .
 ```
 
 ### 2. 从构建包安装
 
 ```bash
-# 从构建的 wheel 包安装
+# 使用 Make 命令 (推荐)
 make install-from-build
 
-# 或手动安装
+# 或使用 uv
+uv pip install dist/langchain_agent-*.whl --force-reinstall
+
+# 或使用传统 pip
 pip install dist/langchain_agent-*.whl --force-reinstall
 ```
 
@@ -202,7 +211,10 @@ make publish-test
 测试安装:
 
 ```bash
-# 从 TestPyPI 安装
+# 使用 uv (推荐)
+uv pip install -i https://test.pypi.org/simple/ langchain-agent
+
+# 或使用传统 pip
 pip install -i https://test.pypi.org/simple/ langchain-agent
 
 # 测试功能
@@ -224,7 +236,11 @@ make publish
 发布成功后，可以通过以下方式安装:
 
 ```bash
+# 使用传统 pip
 pip install langchain-agent
+
+# 或使用 uv (推荐)
+uv pip install langchain-agent
 ```
 
 ## 📌 版本管理
@@ -269,6 +285,10 @@ git push --tags
 
 **解决**:
 ```bash
+# 使用 uv
+uv pip install --upgrade build
+
+# 或使用 pip
 pip install --upgrade build
 ```
 
@@ -304,6 +324,31 @@ pip install --upgrade build
 1. 检查 `pyproject.toml` 中的依赖版本范围
 2. 使用虚拟环境测试
 3. 更新 `requirements.txt`
+
+### pyenv 版本问题
+
+**问题**: `pyenv: version 'X.X' is not installed`
+
+**原因**: 项目的 `.python-version` 文件指定的 Python 版本在你的系统中未安装。
+
+**解决方案**:
+
+```bash
+# 方案1: 使用 uv pip (推荐,不受 pyenv 影响)
+uv pip install langchain-agent
+
+# 方案2: 安装指定的 Python 版本
+pyenv install 3.9.13  # 或项目要求的版本
+
+# 方案3: 修改 .python-version 为已安装的版本
+pyenv versions  # 先查看已安装的版本
+echo "3.11" > .python-version  # 改为你已有的版本
+```
+
+**说明**:
+- 本项目同时支持 `uv` 和传统 `pip`
+- 使用 `uv pip` 可以避免 pyenv 版本冲突
+- 项目要求 Python >= 3.9,支持 3.9、3.10、3.11、3.12
 
 ## 📚 相关文档
 
@@ -359,7 +404,7 @@ make pre-release
 make publish-test
 
 # 5. 测试安装
-pip install -i https://test.pypi.org/simple/ langchain-agent
+pip install -i https://test.pypi.org/simple/ langchain-agent  # 或使用 uv pip
 chat  # 测试功能
 
 # 6. 正式发布到 PyPI
@@ -371,7 +416,7 @@ git push origin master
 git push --tags
 
 # 8. 验证安装
-pip install langchain-agent --upgrade
+pip install langchain-agent --upgrade  # 或使用 uv pip
 ```
 
 ---
