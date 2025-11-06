@@ -2,9 +2,11 @@
 
 一个基于 LangChain 的智能聊天助手，集成了时区查询等实用工具。
 
+[![PyPI version](https://img.shields.io/pypi/v/langchain-agent.svg)](https://pypi.org/project/langchain-agent/)
 [![Python Version](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Downloads](https://img.shields.io/pypi/dm/langchain-agent.svg)](https://pypi.org/project/langchain-agent/)
 
 > 📐 本项目采用 [src 布局](STRUCTURE.md)，符合 Python 最佳实践
 
@@ -24,9 +26,33 @@
 - Python >= 3.10
 - Ollama (本地 LLM 服务)
 
-## 🚀 快速开始
+## 📦 安装
 
-### 1. 安装依赖
+### 从 PyPI 安装（推荐）
+
+```bash
+# 使用 pip
+pip install langchain-agent
+
+# 或使用 uv (推荐)
+uv pip install langchain-agent
+```
+
+安装完成后，可以直接使用命令行工具:
+
+```bash
+langchain-chat
+```
+
+### 从源码安装
+
+克隆仓库:
+```bash
+git clone https://github.com/innovationmech/langchain_agent.git
+cd langchain_agent
+```
+
+安装依赖:
 
 使用 uv（推荐）:
 ```bash
@@ -51,23 +77,30 @@ make install
 make install-dev
 ```
 
-### 2. 配置环境变量（可选）
+## 🚀 快速开始
 
-复制示例配置文件:
+### 配置环境变量（可选）
+
+如果从源码运行，可以配置环境变量:
+
 ```bash
 cp .env.example .env
 ```
 
 编辑 `.env` 文件来自定义配置。
 
-### 3. 运行应用
+### 运行应用
 
+如果从 PyPI 安装，直接运行:
 ```bash
-python main.py
+langchain-chat
 ```
 
-或使用 Makefile:
+如果从源码运行:
 ```bash
+python main.py
+
+# 或使用 Makefile
 make run
 ```
 
